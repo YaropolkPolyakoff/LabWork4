@@ -18,5 +18,9 @@ namespace lectureHall
             else
                 Console.WriteLine($"Лекционная аудитория {Name} закрыта.");
         }
+        public override void Evacuate()
+        {
+            Console.WriteLine($"Лекционная аудитория {Name}: включена табличка ВЫХОД");
+        }
     }
 }

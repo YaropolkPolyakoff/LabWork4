@@ -7,7 +7,7 @@ using person;
 
 namespace securityMemberOrCafeteriaWorker
 {
-    public class SecurityMemberOrCafeteriaWorker : Person
+    public class SecurityMemberOrCafeteriaWorker : Person, IPerformable
     {
         public override double Exp
         {
@@ -44,6 +44,10 @@ namespace securityMemberOrCafeteriaWorker
         {
             string ACT = $"Работник службы безопасности/столовой " + Name + " отдыхает.";
             Console.WriteLine(ACT);
+        }
+        public void Perform()
+        {
+            Console.WriteLine($"Работник службы безопасности/столовой {Name} участвует в юбилее университета и обеспечивает порядок/угощения");
         }
         public override void DisplayInfo()
         {

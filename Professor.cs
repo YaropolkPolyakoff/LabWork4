@@ -7,7 +7,7 @@ using person;
 
 namespace professor
 {
-    public class Professor : Person
+    public class Professor : Person, IDocumentable, IEvacuatable, IPerformable
     {
         public override double Exp
         {
@@ -47,7 +47,15 @@ namespace professor
         }
         public void CreateDocument()
         {
-            Console.WriteLine($"Студент {Name} создает документ бережно");
+            Console.WriteLine($"Преподаватель {Name} создает документ бережно с перепроверкой");
+        }
+        public void Evacuate()
+        {
+            Console.WriteLine($"Преподаватель {Name} организует эвакуацию студентов");
+        }
+        public void Perform()
+        {
+            Console.WriteLine($"Преподаватель {Name} участвует в юбилее университета и произносит речь");
         }
         public override void DisplayInfo()
         {

@@ -7,7 +7,7 @@ using person;
 
 namespace librarian
 {
-    public class Librarian : Person
+    public class Librarian : Person, IPerformable
     {
         public override double Exp
         {
@@ -44,6 +44,10 @@ namespace librarian
         {
             string ACT = $"Библиотекарь " + Name + " отдыхает.";
             Console.WriteLine(ACT);
+        }
+        public void Perform()
+        {
+            Console.WriteLine($"Библиотекарь {Name} участвует в юбилее университета и организует книжную выставку");
         }
         public override void DisplayInfo()
         {
