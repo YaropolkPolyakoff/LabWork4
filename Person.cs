@@ -10,6 +10,14 @@ namespace person
     {
         public void CreateDocument();
     }
+    interface IEvacuatable
+    {
+        public void Evacuate();
+    }
+    interface IPerformable
+    {
+        public void Perform();
+    }
     public abstract class Person
     {
         public string Name { get; set; }

@@ -66,17 +66,45 @@ namespace university
                 person.relaxing(); 
             }
         }
+        
         public void DoWork()
         {
-            foreach (var student in students)
+            Console.WriteLine($"{Name}: Работа с документами");
+            foreach (var person in persons)
             {
-                cre
+                if (person is IDocumentable documentable)
+                {
+                    documentable.CreateDocument();
+                }
             }
-            foreach (var professor in professors)
-            {
+        }
 
+        public void DoEvacuate()
+        {
+            Console.WriteLine($"{Name}: Объявлена эвакуация!");
+            foreach (var person in persons)
+            {
+                if (person is IEvacuatable evacuatable)
+                {
+                    evacuatable.Evacuate();
+                }
             }
-                
+            foreach (var room in rooms)
+            {
+                room.Evacuate();
+            }
+        }
+
+        public void Celebrate()
+        {
+            Console.WriteLine($"{Name}: Празднование юбилея университета!");
+            foreach (var person in persons)
+            {
+                if (person is IPerformable performable)
+                {
+                    performable.Perform();
+                }
+            }
         }
     }
 }

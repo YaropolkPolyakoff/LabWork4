@@ -10,7 +10,7 @@ using document;
 namespace student
 {
 
-    public class Student : Person
+    public class Student : Person, IDocumentable, IEvacuatable, IPerformable
     {
         public override double Exp 
         {
@@ -51,6 +51,14 @@ namespace student
         public void CreateDocument()
         {
             Console.WriteLine($"Студент {Name} создает документ быстро без перепроверки");
+        }
+        public void Evacuate()
+        {
+            Console.WriteLine($"Студент {Name} эвакуируется из здания");
+        }
+        public void Perform()
+        {
+            Console.WriteLine($"Студент {Name} участвует в юбилее университета и выступает с концертным номером");
         }
         public override void DisplayInfo()
         {

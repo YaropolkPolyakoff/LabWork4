@@ -18,5 +18,9 @@ namespace computerClassRoom
             else
                 Console.WriteLine($"Компьютерный класс {Name} закрыт.");
         }
+        public override void Evacuate()
+        {
+            Console.WriteLine($"Компьютерный класс {Name}: включена табличка ВЫХОД");
+        }
     }
 }
