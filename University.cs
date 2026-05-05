@@ -19,6 +19,9 @@ namespace university
         private List<Person> persons = new List<Person>();
         private List<Student> students = new List<Student>();
         private List<Professor> professors = new List<Professor>();
+        private List<IDocumentable> documentables = new List<IDocumentable>();
+        private List<IEvacuatable> evacuatables = new List<IEvacuatable>();
+        private List<IPerformable> performables = new List<IPerformable>();
         public University(string name)
         {
             Name = name;
@@ -34,6 +37,18 @@ namespace university
         public void AddPerson(Person person)
         {
             persons.Add(person);
+            if (person is IDocumentable documentable)
+            {
+                documentables.Add(documentable);
+            }
+            if (person is IEvacuatable evacuatable)
+            {
+                evacuatables.Add(evacuatable);
+            }
+            if (person is IPerformable performable)
+            {
+                performables.Add(performable);
+            }
         }
         private void AddStudent(Student student)
         {
@@ -70,24 +85,18 @@ namespace university
         public void DoWork()
         {
             Console.WriteLine($"{Name}: Работа с документами");
-            foreach (var person in persons)
+            foreach (var documentable in documentables)
             {
-                if (person is IDocumentable documentable)
-                {
-                    documentable.CreateDocument();
-                }
+                documentable.CreateDocument();
             }
         }
 
         public void DoEvacuate()
         {
             Console.WriteLine($"{Name}: Объявлена эвакуация!");
-            foreach (var person in persons)
+            foreach (var evacuatable in evacuatables)
             {
-                if (person is IEvacuatable evacuatable)
-                {
-                    evacuatable.Evacuate();
-                }
+                evacuatable.Evacuate();
             }
             foreach (var room in rooms)
             {
@@ -98,12 +107,9 @@ namespace university
         public void Celebrate()
         {
             Console.WriteLine($"{Name}: Празднование юбилея университета!");
-            foreach (var person in persons)
+            foreach (var performable in performables)
             {
-                if (person is IPerformable performable)
-                {
-                    performable.Perform();
-                }
+                performable.Perform();
             }
         }
     }
